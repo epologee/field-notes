@@ -63,13 +63,31 @@ class RickRubinReading(unittest.TestCase):
 
 
 
+class JeffersonFisherPosterWall(unittest.TestCase):
+    def setUp(self):
+        build(ROOT / "jefferson-fisher" / "build.py")
+        self.page = (ROOT / "jefferson-fisher" / "index.html").read_text()
+
+    def test_every_quote_becomes_a_poster_on_the_wall(self):
+        with (ROOT / "jefferson-fisher" / "wisdom.csv").open() as source:
+            quotes = len(source.readlines()) - 1
+        posters = re.findall(r'<img src="(posters/[^"]+\.svg)"', self.page)
+        self.assertEqual(len(posters), quotes)
+        for path in posters:
+            self.assertTrue((ROOT / "jefferson-fisher" / path).exists(), path)
+
+    def test_links_back_to_the_index(self):
+        self.assertIn('href="../index.html"', self.page)
+
+
 class PublicationDates(unittest.TestCase):
     def test_index_and_sites_show_when_each_video_was_published(self):
         build(ROOT / "build.py")
         index = (ROOT / "index.html").read_text()
         self.assertIn("Published 20 September 2026", index)
+        self.assertIn("Published 4 May 2026", index)
         self.assertIn("Published 20 September 2026", (ROOT / "rick-rubin" / "index.html").read_text())
-
+        self.assertIn("Published 4 May 2026", (ROOT / "jefferson-fisher" / "index.html").read_text())
 
 if __name__ == "__main__":
     unittest.main()

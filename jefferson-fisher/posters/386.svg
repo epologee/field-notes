@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1350" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <style>
+      .stage    { fill: #ffffff; }
+      .rule     { stroke: #0e0e0e; stroke-width: 1.1; }
+      .eyebrow  { font-family: "Inter", "Helvetica Neue", system-ui, sans-serif;
+                  font-size: 15px; letter-spacing: 0.24em; text-transform: uppercase;
+                  fill: #0e0e0e; font-weight: 600; }
+      .show     { font-family: "Inter", "Helvetica Neue", system-ui, sans-serif;
+                  font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase;
+                  fill: #6b6b6b; font-weight: 500; }
+      .quote    { font-family: "EB Garamond", "Sorts Mill Goudy", "Apple Garamond", Garamond, "Times New Roman", serif;
+                  fill: #0e0e0e; font-weight: 500; }
+      .display  { font-size: 84px; line-height: 1.04; letter-spacing: -0.012em; }
+      .accent   { font-style: italic; font-weight: 500; fill: #b14a2a; }
+      .attrib   { font-family: "Inter", "Helvetica Neue", system-ui, sans-serif;
+                  font-size: 17px; letter-spacing: 0.18em; text-transform: uppercase;
+                  fill: #0e0e0e; font-weight: 600; }
+      .small    { font-family: "Inter", "Helvetica Neue", system-ui, sans-serif;
+                  font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase;
+                  fill: #6b6b6b; font-weight: 400; }
+      .urltext  { font-family: "JetBrains Mono", "SF Mono", ui-monospace, Menlo, monospace;
+                  font-size: 12px; letter-spacing: 0.02em;
+                  fill: #6b6b6b; font-weight: 400; }
+      .context  { font-family: "EB Garamond", "Sorts Mill Goudy", "Apple Garamond", Garamond, "Times New Roman", serif;
+                  font-size: 22px; line-height: 1.42; fill: #3a3a3a;
+                  font-style: italic; font-weight: 400; }
+    </style>
+  </defs>
+
+  <rect class="stage" width="1080" height="1350"/>
+
+  <g transform="translate(96 96)">
+    <text class="show"    y="0">Modern Wisdom · hosted by Chris Williamson</text>
+    <text class="eyebrow" y="34">The Quiet Art of Leading Any Conversation</text>
+    <line class="rule" x1="0" y1="58" x2="888" y2="58"/>
+  </g>
+
+  <g transform="translate(96 355)">
+    <text class="quote display" x="0" y="0">
+      <tspan x="0" dy="0">I need to have a</tspan>
+      <tspan x="0" dy="1.04em">difficult conversation</tspan>
+      <tspan x="0" dy="1.04em">with you, and I know</tspan>
+      <tspan x="0" dy="1.04em">that you can handle</tspan>
+      <tspan x="0" dy="1.04em">it. And I know that we</tspan>
+      <tspan x="0" dy="1.04em">can handle it as well.</tspan>
+    </text>
+  </g>
+
+  <g transform="translate(96 1025)">
+    <text class="context" x="0" y="0">
+      <tspan x="0" dy="0">Chris cites a line he recently learned from coach Connor Beaton:</tspan>
+      <tspan x="0" dy="1.42em">a script that opens a hard conversation by simultaneously naming</tspan>
+      <tspan x="0" dy="1.42em">the difficulty and the relationship’s capacity for it. ‘I know</tspan>
+      <tspan x="0" dy="1.42em">you can handle it, and I know we can handle it.’ The framing</tspan>
+      <tspan x="0" dy="1.42em">primes the other person to lean in rather than brace.</tspan>
+    </text>
+  </g>
+
+  <g transform="translate(96 1196)">
+    <line class="rule" x1="0" y1="0" x2="888" y2="0"/>
+    <text class="attrib" x="0" y="38">Connor Beaton (via Chris)</text>
+    <text class="small"  x="0" y="68">Modern Wisdom · 4 May 2026 · 6:26</text>
+    <a href="https://youtu.be/AwPNjPR-vVY?t=386" target="_blank" rel="noopener">
+      <text class="urltext" x="888" y="68" text-anchor="end">youtu.be/AwPNjPR-vVY?t=386</text>
+    </a>
+  </g>
+</svg>

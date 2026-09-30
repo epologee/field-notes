@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1350" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <style>
+      .stage    { fill: #ffffff; }
+      .rule     { stroke: #0e0e0e; stroke-width: 1.1; }
+      .eyebrow  { font-family: "Inter", "Helvetica Neue", system-ui, sans-serif;
+                  font-size: 15px; letter-spacing: 0.24em; text-transform: uppercase;
+                  fill: #0e0e0e; font-weight: 600; }
+      .show     { font-family: "Inter", "Helvetica Neue", system-ui, sans-serif;
+                  font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase;
+                  fill: #6b6b6b; font-weight: 500; }
+      .quote    { font-family: "EB Garamond", "Sorts Mill Goudy", "Apple Garamond", Garamond, "Times New Roman", serif;
+                  fill: #0e0e0e; font-weight: 500; }
+      .display  { font-size: 77px; line-height: 1.04; letter-spacing: -0.012em; }
+      .accent   { font-style: italic; font-weight: 500; fill: #b14a2a; }
+      .attrib   { font-family: "Inter", "Helvetica Neue", system-ui, sans-serif;
+                  font-size: 17px; letter-spacing: 0.18em; text-transform: uppercase;
+                  fill: #0e0e0e; font-weight: 600; }
+      .small    { font-family: "Inter", "Helvetica Neue", system-ui, sans-serif;
+                  font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase;
+                  fill: #6b6b6b; font-weight: 400; }
+      .urltext  { font-family: "JetBrains Mono", "SF Mono", ui-monospace, Menlo, monospace;
+                  font-size: 12px; letter-spacing: 0.02em;
+                  fill: #6b6b6b; font-weight: 400; }
+      .context  { font-family: "EB Garamond", "Sorts Mill Goudy", "Apple Garamond", Garamond, "Times New Roman", serif;
+                  font-size: 22px; line-height: 1.42; fill: #3a3a3a;
+                  font-style: italic; font-weight: 400; }
+    </style>
+  </defs>
+
+  <rect class="stage" width="1080" height="1350"/>
+
+  <g transform="translate(96 96)">
+    <text class="show"    y="0">Modern Wisdom · hosted by Chris Williamson</text>
+    <text class="eyebrow" y="34">The Quiet Art of Leading Any Conversation</text>
+    <line class="rule" x1="0" y1="58" x2="888" y2="58"/>
+  </g>
+
+  <g transform="translate(96 291)">
+    <text class="quote display" x="0" y="0">
+      <tspan x="0" dy="0">My words can either hurt</tspan>
+      <tspan x="0" dy="1.04em">you or heal you. If I</tspan>
+      <tspan x="0" dy="1.04em">self-improve everything</tspan>
+      <tspan x="0" dy="1.04em">about me but I don’t</tspan>
+      <tspan x="0" dy="1.04em">improve what comes out</tspan>
+      <tspan x="0" dy="1.04em">of my mouth, that’s a</tspan>
+      <tspan x="0" dy="1.04em">Formula One car without</tspan>
+      <tspan x="0" dy="1.04em">a steering wheel.</tspan>
+    </text>
+  </g>
+
+  <g transform="translate(96 1025)">
+    <text class="context" x="0" y="0">
+      <tspan x="0" dy="0">After Chris reads his essay ‘The Shame of Small Fears,’</tspan>
+      <tspan x="0" dy="1.42em">Jefferson lands on the line. We invest in our bodies but neglect</tspan>
+      <tspan x="0" dy="1.42em">what comes out of our mouths. A high-performance physique paired</tspan>
+      <tspan x="0" dy="1.42em">with low-skill communication is a Formula One car with no</tspan>
+      <tspan x="0" dy="1.42em">steering wheel. Pretty, fast, useless.</tspan>
+    </text>
+  </g>
+
+  <g transform="translate(96 1196)">
+    <line class="rule" x1="0" y1="0" x2="888" y2="0"/>
+    <text class="attrib" x="0" y="38">Jefferson Fisher</text>
+    <text class="small"  x="0" y="68">Modern Wisdom · 4 May 2026 · 1:00:54</text>
+    <a href="https://youtu.be/AwPNjPR-vVY?t=3654" target="_blank" rel="noopener">
+      <text class="urltext" x="888" y="68" text-anchor="end">youtu.be/AwPNjPR-vVY?t=3654</text>
+    </a>
+  </g>
+</svg>

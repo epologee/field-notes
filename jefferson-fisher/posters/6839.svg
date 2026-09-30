@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1350" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <style>
+      .stage    { fill: #ffffff; }
+      .rule     { stroke: #0e0e0e; stroke-width: 1.1; }
+      .eyebrow  { font-family: "Inter", "Helvetica Neue", system-ui, sans-serif;
+                  font-size: 15px; letter-spacing: 0.24em; text-transform: uppercase;
+                  fill: #0e0e0e; font-weight: 600; }
+      .show     { font-family: "Inter", "Helvetica Neue", system-ui, sans-serif;
+                  font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase;
+                  fill: #6b6b6b; font-weight: 500; }
+      .quote    { font-family: "EB Garamond", "Sorts Mill Goudy", "Apple Garamond", Garamond, "Times New Roman", serif;
+                  fill: #0e0e0e; font-weight: 500; }
+      .display  { font-size: 102px; line-height: 1.04; letter-spacing: -0.012em; }
+      .accent   { font-style: italic; font-weight: 500; fill: #b14a2a; }
+      .attrib   { font-family: "Inter", "Helvetica Neue", system-ui, sans-serif;
+                  font-size: 17px; letter-spacing: 0.18em; text-transform: uppercase;
+                  fill: #0e0e0e; font-weight: 600; }
+      .small    { font-family: "Inter", "Helvetica Neue", system-ui, sans-serif;
+                  font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase;
+                  fill: #6b6b6b; font-weight: 400; }
+      .urltext  { font-family: "JetBrains Mono", "SF Mono", ui-monospace, Menlo, monospace;
+                  font-size: 12px; letter-spacing: 0.02em;
+                  fill: #6b6b6b; font-weight: 400; }
+      .context  { font-family: "EB Garamond", "Sorts Mill Goudy", "Apple Garamond", Garamond, "Times New Roman", serif;
+                  font-size: 22px; line-height: 1.42; fill: #3a3a3a;
+                  font-style: italic; font-weight: 400; }
+    </style>
+  </defs>
+
+  <rect class="stage" width="1080" height="1350"/>
+
+  <g transform="translate(96 96)">
+    <text class="show"    y="0">Modern Wisdom · hosted by Chris Williamson</text>
+    <text class="eyebrow" y="34">The Quiet Art of Leading Any Conversation</text>
+    <line class="rule" x1="0" y1="58" x2="888" y2="58"/>
+  </g>
+
+  <g transform="translate(96 313)">
+    <text class="quote display" x="0" y="0">
+      <tspan x="0" dy="0">Liars cannot stand</tspan>
+      <tspan x="0" dy="1.04em">that you don’t</tspan>
+      <tspan x="0" dy="1.04em">believe them.</tspan>
+      <tspan x="0" dy="1.04em">People telling the</tspan>
+      <tspan x="0" dy="1.04em">truth are at peace</tspan>
+      <tspan x="0" dy="1.04em">if you don’t.</tspan>
+    </text>
+  </g>
+
+  <g transform="translate(96 1025)">
+    <text class="context" x="0" y="0">
+      <tspan x="0" dy="0">After Chris asks about lie-detection without evidence, Jefferson</tspan>
+      <tspan x="0" dy="1.42em">offers a behavioural tell. Truth-tellers can sit with being</tspan>
+      <tspan x="0" dy="1.42em">disbelieved. Liars cannot. Their internal stake in your belief</tspan>
+      <tspan x="0" dy="1.42em">is what gives them away; a disproportionate need for you to</tspan>
+      <tspan x="0" dy="1.42em">accept the story is the signal.</tspan>
+    </text>
+  </g>
+
+  <g transform="translate(96 1196)">
+    <line class="rule" x1="0" y1="0" x2="888" y2="0"/>
+    <text class="attrib" x="0" y="38">Jefferson Fisher</text>
+    <text class="small"  x="0" y="68">Modern Wisdom · 4 May 2026 · 1:53:59</text>
+    <a href="https://youtu.be/AwPNjPR-vVY?t=6839" target="_blank" rel="noopener">
+      <text class="urltext" x="888" y="68" text-anchor="end">youtu.be/AwPNjPR-vVY?t=6839</text>
+    </a>
+  </g>
+</svg>
