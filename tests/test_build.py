@@ -90,6 +90,11 @@ class JeffersonFisherPosterWall(unittest.TestCase):
     def test_video_stays_out_of_print(self):
         self.assertIn(".slot,.screen,.order{display:none!important}", self.page)
 
+    def test_poster_links_land_on_the_wall_with_the_player(self):
+        self.assertIn('<li id="p3721" data-seconds="3721"><a class="poster" href="#p3721">', self.page)
+        self.assertIn("!entries.at(-1).isIntersecting", self.page)
+        self.assertIn("player.cueVideoById({videoId:video,startSeconds:to})", self.page)
+
 
 class PublicationDates(unittest.TestCase):
     def test_index_and_sites_show_when_each_video_was_published(self):
