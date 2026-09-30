@@ -27,6 +27,10 @@ Each site gets its own colour scheme and typography, derived from the subject of
 
 As of September 2026 the recognisable defaults were purple-to-blue gradients with Inter, warm cream paper with a high-contrast serif and a terracotta accent, near-black with a single neon accent, and broadsheet layouts built from hairline rules. Treat that as an example of what to check for, not as the list to check against. Two sites next to each other on the index should not look like the same template with different words.
 
+## From transcript to site
+
+Read the whole transcript before choosing the form. When it is unclear which episode is meant, ask before reading, because the choice of episode decides everything after it. Take timestamps from phrases located in the transcript, never from estimates, and check that every quote falls inside its own chapter or poster. Quotes stay verbatim, sponsor reads are left out, and a chapter on a sensitive subject carries a content note.
+
 ## Checks
 
-Run `python3 -m unittest discover -s tests` before committing. It rebuilds every page and checks their links, players and metadata.
+Run `python3 -m unittest discover -s tests` before committing. It rebuilds every page and checks their links, players and metadata. Test the player through a local HTTP server, because YouTube refuses to embed into a page opened from disk. After every push that touches a player, replay it on the live site: ads only appear there, and they are what breaks seeking.
