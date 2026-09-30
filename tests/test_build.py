@@ -82,6 +82,14 @@ class JeffersonFisherPosterWall(unittest.TestCase):
     def test_links_back_to_the_index(self):
         self.assertIn('href="../index.html"', self.page)
 
+    def test_wall_follows_the_playing_video_in_a_docked_player(self):
+        self.assertIn(".docked .screen{position:fixed", self.page)
+        self.assertIn("following=setInterval(follow,1000)", self.page)
+        self.assertIn("order('time')", self.page)
+
+    def test_video_stays_out_of_print(self):
+        self.assertIn(".slot,.screen,.order{display:none!important}", self.page)
+
 
 class PublicationDates(unittest.TestCase):
     def test_index_and_sites_show_when_each_video_was_published(self):
