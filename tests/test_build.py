@@ -1,5 +1,6 @@
 """Check that the generated pages link every video site and its source moments."""
 from pathlib import Path
+import html
 import re
 import subprocess
 import sys
@@ -96,12 +97,38 @@ class JeffersonFisherPosterWall(unittest.TestCase):
         self.assertIn("player.cueVideoById({videoId:video,startSeconds:to})", self.page)
 
 
+
+class JimmyCarrReading(unittest.TestCase):
+    def setUp(self):
+        build(ROOT / "jimmy-carr" / "build.py")
+        self.page = (ROOT / "jimmy-carr" / "index.html").read_text()
+        self.chapters = yaml.safe_load((ROOT / "jimmy-carr" / "chapters.yaml").read_text())["chapters"]
+
+    def test_every_chapter_links_into_the_video_with_a_quote(self):
+        for chapter in self.chapters:
+            self.assertTrue(chapter["quote"])
+            self.assertIn(html.escape(chapter["title"]), self.page)
+        self.assertIn("const video='gAxNYd01I6E'", self.page)
+
+    def test_player_follows_the_chapters(self):
+        self.assertIn("follow=setInterval(followVideo,1000)", self.page)
+        self.assertIn("if(started&&!fromVideo)seekChapter(active);", self.page)
+
+    def test_suicide_chapter_carries_a_content_note(self):
+        noted = [c["title"] for c in self.chapters if c.get("content_note") == "suicide"]
+        self.assertEqual(noted, ["The terrible truth"])
+
+    def test_has_its_own_palette(self):
+        self.assertIn("--desk:#c8dbcd", self.page)
+        self.assertNotIn("#f7f3eb", self.page)
+
 class PublicationDates(unittest.TestCase):
     def test_index_and_sites_show_when_each_video_was_published(self):
         build(ROOT / "build.py")
         index = (ROOT / "index.html").read_text()
         self.assertIn("Published 20 September 2026", index)
         self.assertIn("Published 4 May 2026", index)
+        self.assertIn("Published 10 August 2026", index)
         self.assertIn("Published 20 September 2026", (ROOT / "rick-rubin" / "index.html").read_text())
         self.assertIn("Published 4 May 2026", (ROOT / "jefferson-fisher" / "index.html").read_text())
 
