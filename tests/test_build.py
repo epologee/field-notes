@@ -37,7 +37,8 @@ class RickRubinReading(unittest.TestCase):
 
     def test_chapters_follow_the_playing_video(self):
         self.assertIn("follow=setInterval(followVideo,1000)", self.page)
-        self.assertIn("if(started&&!fromVideo)player.seekTo(", self.page)
+        self.assertIn("if(started&&!fromVideo)seekChapter(active);", self.page)
+        self.assertIn("if(pending){", self.page)
 
     def test_player_is_available_on_every_chapter(self):
         self.assertIn(".reading .screen{display:block;position:fixed", self.page)
