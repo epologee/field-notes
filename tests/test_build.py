@@ -31,9 +31,13 @@ class RickRubinReading(unittest.TestCase):
         self.assertIn('href="../index.html"', self.page)
 
     def test_title_page_embeds_the_video(self):
-        self.assertIn('<div class="player"><div id="player"></div></div>', self.page)
+        self.assertIn('<div class="screen"><div id="player"></div></div>', self.page)
         self.assertIn("const video='a_GiFiHXJ6g'", self.page)
         self.assertIn("https://www.youtube.com/iframe_api", self.page)
+
+    def test_chapters_follow_the_playing_video(self):
+        self.assertIn("follow=setInterval(followVideo,1000)", self.page)
+        self.assertIn("if(started&&!fromVideo)player.seekTo(", self.page)
 
     def test_share_preview_shows_the_video_thumbnail(self):
         self.assertIn('<meta property="og:image" content="https://i.ytimg.com/vi/a_GiFiHXJ6g/maxresdefault.jpg">', self.page)
