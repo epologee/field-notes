@@ -39,6 +39,14 @@ class RickRubinReading(unittest.TestCase):
         self.assertIn("follow=setInterval(followVideo,1000)", self.page)
         self.assertIn("if(started&&!fromVideo)player.seekTo(", self.page)
 
+    def test_player_is_available_on_every_chapter(self):
+        self.assertIn(".reading .screen{display:block;position:fixed", self.page)
+        self.assertNotIn(".reading .screen{display:none}", self.page)
+
+    def test_menu_leads_back_to_the_title_page(self):
+        self.assertIn('<a id="cover-link" href="#"><i>00</i>Title page</a>', self.page)
+        self.assertIn("function showCover()", self.page)
+
     def test_share_preview_shows_the_video_thumbnail(self):
         self.assertIn('<meta property="og:image" content="https://i.ytimg.com/vi/a_GiFiHXJ6g/maxresdefault.jpg">', self.page)
         self.assertIn('<meta name="twitter:card" content="summary_large_image">', self.page)
