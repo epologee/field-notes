@@ -35,6 +35,10 @@ class RickRubinReading(unittest.TestCase):
         self.assertIn("const video='a_GiFiHXJ6g'", self.page)
         self.assertIn("https://www.youtube.com/iframe_api", self.page)
 
+    def test_share_preview_shows_the_video_thumbnail(self):
+        self.assertIn('<meta property="og:image" content="https://i.ytimg.com/vi/a_GiFiHXJ6g/maxresdefault.jpg">', self.page)
+        self.assertIn('<meta name="twitter:card" content="summary_large_image">', self.page)
+
     def test_video_links_start_before_their_timestamp(self):
         lead = int(re.search(r"const lead=(\d+);", self.page).group(1))
         self.assertGreater(lead, 0)
