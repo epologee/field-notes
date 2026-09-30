@@ -50,6 +50,9 @@ class RickRubinReading(unittest.TestCase):
         self.assertIn('<a id="cover-link" href="#"><i>00</i>Title page</a>', self.page)
         self.assertIn("function showCover()", self.page)
 
+    def test_video_stays_out_of_print(self):
+        self.assertIn(".toc,header,.cover,.nav,.note,.screen{display:none!important}", self.page)
+
     def test_share_preview_shows_the_video_thumbnail(self):
         self.assertIn('<meta property="og:image" content="https://i.ytimg.com/vi/a_GiFiHXJ6g/maxresdefault.jpg">', self.page)
         self.assertIn('<meta name="twitter:card" content="summary_large_image">', self.page)
