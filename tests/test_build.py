@@ -30,6 +30,11 @@ class RickRubinReading(unittest.TestCase):
     def test_links_back_to_the_index(self):
         self.assertIn('href="../index.html"', self.page)
 
+    def test_title_page_embeds_the_video(self):
+        self.assertIn('<div class="player"><div id="player"></div></div>', self.page)
+        self.assertIn("const video='a_GiFiHXJ6g'", self.page)
+        self.assertIn("https://www.youtube.com/iframe_api", self.page)
+
     def test_video_links_start_before_their_timestamp(self):
         lead = int(re.search(r"const lead=(\d+);", self.page).group(1))
         self.assertGreater(lead, 0)
