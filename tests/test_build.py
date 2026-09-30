@@ -62,5 +62,14 @@ class RickRubinReading(unittest.TestCase):
         self.assertIn(f'?t={follow - lead}\\"', self.page)
 
 
+
+class PublicationDates(unittest.TestCase):
+    def test_index_and_sites_show_when_each_video_was_published(self):
+        build(ROOT / "build.py")
+        index = (ROOT / "index.html").read_text()
+        self.assertIn("Published 20 September 2026", index)
+        self.assertIn("Published 20 September 2026", (ROOT / "rick-rubin" / "index.html").read_text())
+
+
 if __name__ == "__main__":
     unittest.main()

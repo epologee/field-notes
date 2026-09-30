@@ -12,12 +12,14 @@ def entry(video):
     if not (ROOT / video["slug"] / "index.html").exists():
         raise SystemExit(f"{video['slug']}/index.html is missing")
     e = {k: html.escape(str(v)) for k, v in video.items()}
+    published = video["published"]
+    e["published"] = f"{published.day} {published:%B %Y}"
     return f"""<li><a class="entry" href="{e['slug']}/index.html">
 <img src="https://i.ytimg.com/vi/{e['youtube_id']}/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
-<div><p class="meta">{e['show']} · {e['duration']} · {e['chapters']} chapters</p>
+<div><p class="meta">{e['show']} · Published {e['published']} · {e['duration']}</p>
 <h2>{e['speaker']}<br><em>{e['title']}</em></h2>
 <p class="summary">{e['summary']}</p>
-<p class="with">In conversation with {e['host']}</p></div></a>
+<p class="with">In conversation with {e['host']} · {e['contents']}</p></div></a>
 <a class="source" href="https://www.youtube.com/watch?v={e['youtube_id']}" target="_blank" rel="noopener">Watch on YouTube ↗</a></li>"""
 
 page = f"""<!doctype html>
