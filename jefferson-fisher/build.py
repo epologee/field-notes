@@ -26,7 +26,7 @@ def rows():
 
 
 def items():
-    return [Item(row["quote"][:48], int(row["timestamp_s"]), [Quote(row["quote"], int(row["timestamp_s"]))]) for row in rows()]
+    return [Item(row["quote"][:48], int(row["timestamp_s"]), [Quote(row["quote"], int(row["timestamp_s"]), row["wording"] == "verbatim")]) for row in rows()]
 
 
 def prose():

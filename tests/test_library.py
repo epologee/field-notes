@@ -81,9 +81,19 @@ class Checks(unittest.TestCase):
             Item("Reset", 60, [Quote("You just hit the reset button", 30)]),
         ]
         found = checks.problems(items, [Break("Sponsors", "A drink", 40, 60)], segments())
-        self.assertTrue(any("not verbatim" in p for p in found))
+        self.assertTrue(any("present it as a paraphrase" in p for p in found))
         self.assertTrue(any("inside the sponsors break" in p for p in found))
         self.assertTrue(any("falls outside its item" in p for p in found))
+
+    def test_a_quote_may_differ_slightly_from_an_imperfect_transcript(self):
+        items = [Item("Reset", 60, [Quote("You just hit the reset button and you start again", 70)])]
+        self.assertEqual(checks.problems(items, [], segments()), [])
+
+    def test_a_paraphrase_is_not_held_to_the_spoken_words(self):
+        items = [Item("Reset", 60, [Quote("Starting over is always allowed", 70, verbatim=False)])]
+        self.assertEqual(checks.problems(items, [], segments()), [])
+        items = [Item("Reset", 60, [Quote("Starting over is always allowed", 70)])]
+        self.assertTrue(any("present it as a paraphrase" in p for p in checks.problems(items, [], segments())))
 
     def test_items_may_start_in_the_cold_open(self):
         items = [Item("Keep playing", 0, [])]

@@ -31,7 +31,7 @@ As of September 2026 the recognisable defaults were purple-to-blue gradients wit
 
 ## Content rules
 
-Quotes stay verbatim and fall inside their own chapter or poster. Timestamps come from phrases located in the transcript, never from estimates. Sponsor reads are left out of the text and appear only as break markers. A chapter or poster may start in the cold open, which replays excerpts of the conversation, but never inside any other break. A chapter on a sensitive subject carries a content note. The transcript itself is never published: a page carries only the word index that search needs, without running text.
+Words shown as a quote, with quotation marks or as a line attributed to the speaker, are what the speaker said, apart from the small corrections a transcript needs; the check accepts them at 85% likeness to the transcript. Words that drift further are a paraphrase: the page then presents them without quotation marks and without suggesting they were said that way, or leaves them out. Whether a site is built on quotes or on paraphrase follows from what the site is for, decided per site and where needed per item. Every quote falls inside its own chapter or poster. Timestamps come from phrases located in the transcript, never from estimates. Sponsor reads are left out of the text and appear only as break markers. A chapter or poster may start in the cold open, which replays excerpts of the conversation, but never inside any other break. A chapter on a sensitive subject carries a content note. The transcript itself is never published: a page carries only the word index that search needs, without running text.
 
 ## Checks
 

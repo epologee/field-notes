@@ -58,8 +58,10 @@ def breaks(site_dir):
 
 @dataclass
 class Quote:
+    """Words attributed to a speaker. Verbatim words must match what was said; a paraphrase need not."""
     text: str
     start: int
+    verbatim: bool = True
 
 
 @dataclass

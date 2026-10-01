@@ -152,6 +152,11 @@ def find_row(timestamp_s: int) -> dict[str, str]:
 def context_for(row: dict[str, str]) -> str:
     return CONTEXTS.get(int(row["timestamp_s"]), row.get("context", ""))
 
+def attribution(row: dict[str, str]) -> str:
+    """A paraphrased line must not read as words the speaker said."""
+    name = row["attributed_to"]
+    return name if row.get("wording", "verbatim") == "verbatim" else f"Paraphrasing {name}"
+
 def curl_quotes(text: str) -> str:
     text = re.sub(r"(^|[\s(])'", "\\1\u2018", text)
     return text.replace("'", "\u2019")
@@ -186,7 +191,7 @@ def render(row: dict[str, str], lines: list[str] | None = None, accents: list[st
         quote_y=quote_y,
         tspans="\n".join(tspans),
         context_block=context_block,
-        attrib=html.escape(row["attributed_to"]),
+        attrib=html.escape(attribution(row)),
         timecode=timecode(timestamp_s),
         video_id=VIDEO_ID,
         timestamp_s=timestamp_s,

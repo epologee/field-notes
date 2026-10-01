@@ -97,6 +97,15 @@ class PosterWall(unittest.TestCase):
         for path in posters:
             self.assertTrue((ROOT / "jefferson-fisher" / path).exists(), path)
 
+    def test_a_paraphrased_poster_says_so(self):
+        with (ROOT / "jefferson-fisher" / "wisdom.csv").open() as source:
+            rows = list(csv.DictReader(source))
+        self.assertTrue({r["wording"] for r in rows} <= {"verbatim", "paraphrase"})
+        for row in rows[:20]:
+            svg = (ROOT / "jefferson-fisher" / "posters" / f"{row['timestamp_s']}.svg")
+            if svg.exists():
+                self.assertEqual("Paraphrasing" in svg.read_text(), row["wording"] == "paraphrase", row["quote"])
+
     def test_poster_links_keep_their_address(self):
         self.assertIn('<li id="p3721" data-seconds="3721"><a class="poster" href="#p3721">', page("jefferson-fisher"))
 

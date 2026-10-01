@@ -1,5 +1,11 @@
 """Check a site's items against the transcript they were written from."""
+import difflib
+
 from . import transcript as spoken
+
+QUOTE_DRIFT_S = 60
+VERBATIM_RATIO = 0.85
+CONVERSATION_EXCERPTS = {"Cold open"}
 
 
 def problems(items, breaks, segments, ordered=True):
@@ -7,7 +13,6 @@ def problems(items, breaks, segments, ordered=True):
     flat = []
     for segment in segments:
         flat += [(segment.start, w) for w in spoken.words(segment.text)]
-    transcript_words = [w for _, w in flat]
     starts = sorted(item.start for item in items)
 
     if ordered:
@@ -24,22 +29,23 @@ def problems(items, breaks, segments, ordered=True):
         for quote in item.quotes:
             if not item.start <= quote.start < end:
                 found.append(f"quote in {item.title!r} at {quote.start}s falls outside its item")
-            spoken_at = [flat[i][0] for i in occurrences(spoken.words(quote.text), transcript_words)]
-            if not spoken_at:
-                found.append(f"quote in {item.title!r} is not verbatim: {quote.text!r}")
+            if not quote.verbatim:
                 continue
-            nearest = min(spoken_at, key=lambda t: abs(t - quote.start))
-            if abs(nearest - quote.start) > QUOTE_DRIFT_S:
-                found.append(f"quote in {item.title!r} is spoken at {nearest}s, not at {quote.start}s")
+            likeness = closeness(spoken.words(quote.text), flat, quote.start)
+            if likeness < VERBATIM_RATIO:
+                found.append(f"quote in {item.title!r} matches what was said around {quote.start}s for only "
+                             f"{likeness:.0%}; quote the words as spoken or present it as a paraphrase: {quote.text!r}")
     return found
 
 
-QUOTE_DRIFT_S = 60
-CONVERSATION_EXCERPTS = {"Cold open"}
-
-
-def occurrences(needle, haystack):
-    if not needle:
-        return []
-    return [i for i, word in enumerate(haystack)
-            if word == needle[0] and haystack[i:i + len(needle)] == needle]
+def closeness(words, flat, near):
+    """How closely the words match the best stretch of transcript spoken near a moment, from 0 to 1."""
+    best = 0.0
+    spoken_words = [w for _, w in flat]
+    for i, (start, _) in enumerate(flat):
+        if abs(start - near) > QUOTE_DRIFT_S:
+            continue
+        match = difflib.SequenceMatcher(None, words, spoken_words[i:i + len(words)], autojunk=False)
+        if match.quick_ratio() > best:
+            best = max(best, match.ratio())
+    return best
