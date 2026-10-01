@@ -19,3 +19,7 @@ A site folder holds its data (`chapters.yaml`, `wisdom.csv` or something new), `
 ## Checks
 
 `python3 -m unittest discover -s tests` rebuilds every site and tests the library and each site, in Chromium where Playwright is available. `node --test 'tests/runtime/*.test.mjs'` tests the runtime on its own.
+
+## Design of the index
+
+The index is the archive the field notes are kept in, so it takes the colours of an archival document box: blue-grey acid-free board (`#a7b3bd`) outside, the white lining (`#fafaf7`) for the cards, black label ink (`#1b232b`) and the brass of the label holder (`#8a6a2f`) as its accent. It stays neutral so each site's own colours can stand out, and every card carries a narrow strip with that site's page and accent colour. Sources: [document boxes in the archivists' dictionary](https://dictionary.archivists.org/entry/document-box.html), [blue-grey archival board](https://preservationequipment.com/Catalogue/Archival-Storage/Boxes/Document-filing-box-archival).
