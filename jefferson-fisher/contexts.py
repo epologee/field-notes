@@ -68,7 +68,7 @@ CONTEXTS[386] = (
 )
 CONTEXTS[450] = (
     "Jefferson contrasts two openings: small-talk-then-bombshell ('hey, you played pickleball "
-    "lately?... so listen...') versus labelling the conversation up front. Naming the "
+    "lately?… so listen…') versus labelling the conversation up front. Naming the "
     "difficulty out loud actually lowers anxiety because it lets the other person ready "
     "themselves emotionally. 'This is going to be a hard conversation' is a gift, not a "
     "warning."
@@ -388,7 +388,7 @@ CONTEXTS[3319] = (
 )
 CONTEXTS[3285] = (
     "Inside the same in-law example, Jefferson teaches a specific opener for self-advocacy: "
-    "'I need to make sure that...' followed by the actual ask. No apology, no over-"
+    "'I need to make sure that…' followed by the actual ask. No apology, no over-"
     "explanation, no hedge. 'I need' frames the request as legitimate without being "
     "aggressive."
 )
@@ -480,7 +480,7 @@ CONTEXTS[4555] = (
 )
 CONTEXTS[4613] = (
     "Another insult response. Ask about intent: 'did you mean for that to sound as insulting "
-    "as it did?' Most people retreat into qualifying ('well, I mean...') because owning the "
+    "as it did?' Most people retreat into qualifying ('well, I mean…') because owning the "
     "intent is uncomfortable. If they double down, you have clarity. Either way you've "
     "surfaced what's actually happening."
 )
@@ -526,7 +526,7 @@ CONTEXTS[5257] = (
     "matching the energy does."
 )
 CONTEXTS[5335] = (
-    "Chris asks which phrases make people sound weak. Jefferson starts with 'I'm sorry but...' "
+    "Chris asks which phrases make people sound weak. Jefferson starts with 'I'm sorry but…' "
     "The construction signals that you're about to defend a position; the apology is a tax "
     "you pay to feel polite before doing it. Most listeners can tell, and the apology stops "
     "working."

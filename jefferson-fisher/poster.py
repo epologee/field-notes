@@ -13,11 +13,15 @@ try:
 except ImportError:
     CONTEXTS = {}
 
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
+from field_notes.episode import published, video  # noqa: E402
+
+EPISODE = video("jefferson-fisher")
 EPISODE_TITLE = "The Quiet Art of Leading Any Conversation"
-EPISODE_DATE = "4 May 2026"
-SHOW = "Modern Wisdom"
-HOST = "Chris Williamson"
-VIDEO_ID = "AwPNjPR-vVY"
+EPISODE_DATE = published(EPISODE)
+SHOW = EPISODE["show"]
+HOST = EPISODE["host"]
+VIDEO_ID = EPISODE["youtube_id"]
 
 CSV_PATH = pathlib.Path(__file__).parent / "wisdom.csv"
 OUT_DIR = pathlib.Path(__file__).parent / "posters"

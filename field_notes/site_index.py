@@ -1,19 +1,13 @@
-#!/usr/bin/env python3
 """Build the index page that lists every video reading site from videos.yaml."""
-from pathlib import Path
 import html
-import yaml
 
-ROOT = Path(__file__).resolve().parent
-videos = sorted(yaml.safe_load((ROOT / "videos.yaml").read_text())["videos"],
-                key=lambda v: str(v["added"]), reverse=True)
+from .episode import ROOT, published, videos as all_videos
 
 def entry(video):
     if not (ROOT / video["slug"] / "index.html").exists():
         raise SystemExit(f"{video['slug']}/index.html is missing")
     e = {k: html.escape(str(v)) for k, v in video.items()}
-    published = video["published"]
-    e["published"] = f"{published.day} {published:%B %Y}"
+    e["published"] = published(video)
     return f"""<li><a class="entry" href="{e['slug']}/index.html">
 <img src="https://i.ytimg.com/vi/{e['youtube_id']}/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
 <div><p class="meta">{e['show']} · Published {e['published']} · {e['duration']}</p>
@@ -22,7 +16,9 @@ def entry(video):
 <p class="with">In conversation with {e['host']} · {e['contents']}</p></div></a>
 <a class="source" href="https://www.youtube.com/watch?v={e['youtube_id']}" target="_blank" rel="noopener">Watch on YouTube ↗</a></li>"""
 
-page = f"""<!doctype html>
+def build():
+    videos = sorted(all_videos(), key=lambda v: str(v["added"]), reverse=True)
+    page = f"""<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -42,5 +38,5 @@ page = f"""<!doctype html>
 </ol>
 </main></body></html>
 """
-(ROOT / "index.html").write_text(page)
-print(f"Built index.html with {len(videos)} videos")
+    (ROOT / "index.html").write_text(page)
+    return len(videos)

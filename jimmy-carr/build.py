@@ -1,47 +1,48 @@
 #!/usr/bin/env python3
-"""Build the standalone reading page from chapters.yaml."""
+"""Build the Jimmy Carr reading page from chapters.yaml and template.html."""
 from pathlib import Path
-import html
 import json
-import re
-import yaml
+import sys
 
-ROOT = Path(__file__).resolve().parent
-DATA = yaml.safe_load((ROOT / "chapters.yaml").read_text())
-VIDEO = DATA["video"].split("?", 1)[0]
-chapters = DATA["chapters"]
-# Links start a little before the transcript timestamp, so the first word is not clipped.
-LEAD_S = 2
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE.parent))
+from field_notes import render  # noqa: E402
+from field_notes.episode import LEAD_S, breaks, chapter_items, chapter_prose, read_chapters  # noqa: E402
 
-def timecode(seconds):
-    seconds = int(seconds)
-    return f"{seconds // 3600:02d}:{seconds % 3600 // 60:02d}:{seconds % 60:02d}"
+SLUG = "jimmy-carr"
+TITLE = "Jimmy Carr: We’re at the Beginning of a Revolution"
+DESCRIPTION = "Jimmy Carr in conversation with Chris Williamson, read as forty-nine short chapters with direct links into the moments that matter."
+CONTENT_NOTE = "Jimmy Carr describes how he talks about suicide in his show. It is his view, not clinical advice."
 
-rows = []
-for chapter in chapters:
-    paragraphs = chapter["paragraphs"]
-    if not isinstance(paragraphs, list) or not paragraphs:
-        raise ValueError(f"chapter {chapter.get('title')!r} needs paragraphs")
-    start = int(chapter["timestamp_s"])
-    if chapter.get("timestamp") != timecode(start):
-        raise ValueError(f"timestamp label disagrees with timestamp_s for {chapter['title']!r}")
-    extra = paragraphs[1] if len(paragraphs) > 1 else ""
-    if chapter.get("continue_timestamp_s") is not None:
-        follow = int(chapter["continue_timestamp_s"])
-        if chapter.get("continue_timestamp") != timecode(follow):
-            raise ValueError(f"continue timestamp label disagrees with seconds for {chapter['title']!r}")
-        extra += f' <a class="time" href="{VIDEO}?t={max(0, follow - LEAD_S)}" target="_blank" rel="noopener">Continue at {timecode(follow)} ↗</a>'
-    rows.append([timecode(start), html.escape(chapter["title"]), start,
-                 html.escape(paragraphs[0]), extra,
-                 html.escape(chapter["quote"]) if chapter.get("quote") else None,
-                 chapter.get("quote_timestamp_s"), html.escape(chapter["content_note"]) if chapter.get("content_note") else None])
 
-page = (ROOT / "index.html").read_text()
-page = re.sub(r"const lead=\d+;", f"const lead={LEAD_S};", page)
-pattern = r"const entries=.*?;\nconst toc="
-replacement = "const entries=" + json.dumps(rows, ensure_ascii=False, separators=(",", ":")) + ";\nconst toc="
-updated, count = re.subn(pattern, lambda _: replacement, page, count=1, flags=re.S)
-if count != 1:
-    raise SystemExit("Could not find generated chapter-data block in index.html")
-(ROOT / "index.html").write_text(updated)
-print(f"Built index.html with {len(rows)} chapters")
+def chapters():
+    return read_chapters(HERE / "chapters.yaml")
+
+
+def items():
+    return chapter_items(chapters())
+
+
+def prose():
+    return chapter_prose(chapters())
+
+
+def build():
+    index = HERE / "transcript-index.json"
+    found = chapters()
+    data = {
+        "lead": LEAD_S,
+        "speaker": "Jimmy Carr",
+        "chapterLabel": "",
+        "contentGroup": "In the set list",
+        "contentNote": CONTENT_NOTE,
+        "chapters": found,
+        "breaks": [vars(b) for b in breaks(HERE)],
+        "transcript": json.loads(index.read_text()) if index.exists() else [],
+    }
+    render.write(SLUG, render.page((HERE / "template.html").read_text(), SLUG, TITLE, DESCRIPTION, data))
+    return f"Built {SLUG}/index.html with {len(found)} chapters"
+
+
+if __name__ == "__main__":
+    print(build())

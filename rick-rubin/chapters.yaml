@@ -1,30 +1,3 @@
-video: https://youtu.be/a_GiFiHXJ6g
-# Stretches of the video that are not part of the conversation. They appear in the chapter list as markers, not as chapters.
-breaks:
-- kind: Cold open
-  label: Teaser clips and a subscribe request
-  start: 00:00:00
-  start_s: 0
-  end: 00:02:32
-  end_s: 152
-- kind: Sponsors
-  label: Ketone IQ and Fiverr
-  start: 00:57:46
-  start_s: 3466
-  end: 00:59:40
-  end_s: 3580
-- kind: Promotion
-  label: The 1% diary and a subscribe request
-  start: 02:00:54
-  start_s: 7254
-  end: 02:02:21
-  end_s: 7341
-- kind: Outro
-  label: A pointer to the next video
-  start: 02:46:12
-  start_s: 9972
-  end: 02:46:30
-  end_s: 9990
 chapters:
 - timestamp: 00:00:00
   timestamp_s: 0
@@ -92,7 +65,7 @@ chapters:
   continue_timestamp_s: 959
 - timestamp: 00:16:45
   timestamp_s: 1005
-  title: "Jay-Z's last album"
+  title: "Jay-Z’s last album"
   paragraphs:
   - When I met Jay-Z, he was planning to retire after the Black Album. He asked ten favorite producers to make one track each with him. Our track became “99 Problems.” It was a fun experience, and I did not know how far it would travel.
   - We made the track and played it for Jay. He liked it, then wrote and rapped the words over the music. My contribution was the track; his was the writing and performance that made it his.
@@ -150,8 +123,8 @@ chapters:
   timestamp_s: 1830
   title: No audience
   paragraphs:
-  - During the creative process, I try not to think about what the audience, label, or market will say. Those concerns can distort what I am trying to hear. There is a time for practical decisions, but I do not want them steering an idea's fragile beginning.
-  - We often simplify the world because complexity is uncomfortable. A rule can make a decision feel settled before we have really looked at it. I would rather stay curious about the situation in front of me than turn one person's path into a formula.
+  - During the creative process, I try not to think about what the audience, label, or market will say. Those concerns can distort what I am trying to hear. There is a time for practical decisions, but I do not want them steering an idea’s fragile beginning.
+  - We often simplify the world because complexity is uncomfortable. A rule can make a decision feel settled before we have really looked at it. I would rather stay curious about the situation in front of me than turn one person’s path into a formula.
   continue_timestamp: 00:32:51
   continue_timestamp_s: 1971
 - timestamp: 00:34:15
@@ -183,7 +156,7 @@ chapters:
   title: Phases and risk
   paragraphs:
   - The process of making something became a way of thinking about life. A person can live creatively as a business owner, chef, mother, or artist. What I make reflects how I see the world in this moment. Tomorrow I may see it differently, and that does not invalidate today.
-  - If I take a risk, I may lose friends or have people think I am strange. I cannot promise every leap will work. Still, I do not want fear of other people's reactions to make every choice for me. Sometimes being true to what I love changes who understands me.
+  - If I take a risk, I may lose friends or have people think I am strange. I cannot promise every leap will work. Still, I do not want fear of other people’s reactions to make every choice for me. Sometimes being true to what I love changes who understands me.
   continue_timestamp: 00:41:32
   continue_timestamp_s: 2492
 - timestamp: 00:42:10
@@ -231,7 +204,7 @@ chapters:
   title: Impermanence
   paragraphs:
   - My Malibu house burned in a fire. I had thought I would live there forever, and suddenly the possessions I had gathered were gone. That experience made impermanence real. We move through life with the information we have, make decisions, and see what unfolds.
-  - When I worked in many studios, I sometimes had a free day and drove around listening to music without making plans. I have never made five-year plans or New Year's resolutions. The idea that I must know my destination before moving feels limiting.
+  - When I worked in many studios, I sometimes had a free day and drove around listening to music without making plans. I have never made five-year plans or New Year’s resolutions. The idea that I must know my destination before moving feels limiting.
   continue_timestamp: 00:52:44
   continue_timestamp_s: 3164
 - timestamp: 00:53:35
@@ -277,8 +250,8 @@ chapters:
   - When it was my turn, I looked down at my friend and said he was in the sweet spot. He looked at me as if I were insane, but he reacted. I was not trying to explain his life or offer a general theory. I wanted to speak to him as someone still here, with choices ahead.
   continue_timestamp: 01:01:45
   continue_timestamp_s: 3705
-  quote: you just hit the reset button
-  quote_timestamp_s: 3736
+  quote: this may be hard for you to see right now, but you’re in the sweet spot
+  quote_timestamp_s: 3715
   content_note: suicide
 - timestamp: 01:02:16
   timestamp_s: 3736
@@ -333,7 +306,7 @@ chapters:
   timestamp_s: 4713
   title: Learn widely
   paragraphs:
-  - What makes someone good at their work may be a skill their field never told them to study. Steve Jobs's interest in design and typography is one example. If everyone reads the same books, we risk arriving at the same perspective. I like looking outside the obvious path and reading old books.
+  - What makes someone good at their work may be a skill their field never told them to study. Steve Jobs’s interest in design and typography is one example. If everyone reads the same books, we risk arriving at the same perspective. I like looking outside the obvious path and reading old books.
   - I first read the Tao after moving to California. It felt unlike anything I had read, and months later it seemed like an entirely different book. The same book can change as I move through life. The Way of Code grew from that experience and adapting the Tao to a new context.
   continue_timestamp: 01:19:03
   continue_timestamp_s: 4743
@@ -360,7 +333,7 @@ chapters:
   title: Creative intelligence
   paragraphs:
   - I think there is a higher creative intelligence in the world, something generative like the force that lets plants grow. I do not know whether it aims at one person. I imagine it as waves I can learn to notice and ride. I cannot always see them, predict them, or prove where they come from.
-  - I think rationality is overrated because the rational world is small. I listen to what a feeling does in someone's life, not only whether I can explain it. If a way of seeing the world helps my partner feel more alive, that matters to me. Its effect on a person is part of what I need to understand.
+  - I think rationality is overrated because the rational world is small. I listen to what a feeling does in someone’s life, not only whether I can explain it. If a way of seeing the world helps my partner feel more alive, that matters to me. Its effect on a person is part of what I need to understand.
   continue_timestamp: 01:26:41
   continue_timestamp_s: 5201
 - timestamp: 01:27:52
@@ -384,7 +357,7 @@ chapters:
   title: More makers
   paragraphs:
   - I do not imagine AI simply replacing the artist end to end. I can see it helping an artist or someone who has never thought of themselves as one. I cannot draw or play an instrument, but I might use prompts and iteration to guide a tool toward something beautiful. More people creating could be good.
-  - We should ask what we mean by creativity. People may use it to mean a successful work that sold well or reached number one. A great song can include the artist's history, collaborators, and path to its audience. The experience is bigger than one output.
+  - We should ask what we mean by creativity. People may use it to mean a successful work that sold well or reached number one. A great song can include the artist’s history, collaborators, and path to its audience. The experience is bigger than one output.
   continue_timestamp: 01:31:46
   continue_timestamp_s: 5506
 - timestamp: 01:33:00
@@ -411,7 +384,7 @@ chapters:
   - I believe the idea remains the art, even when someone else physically makes it. But I do not know whether AI ideation is interesting to anyone; we will see. Steven told me he had liked a song before learning it had been made by AI. I asked whether I should oppose something because of how it was made; it does not make sense to me.
   continue_timestamp: 01:39:51
   continue_timestamp_s: 5991
-  quote: the art's always in the ideation
+  quote: the art’s always in the ideation
   quote_timestamp_s: 5873
 - timestamp: 01:40:35
   timestamp_s: 6035
@@ -429,7 +402,7 @@ chapters:
   - Johnny Cash and I recorded songs in my living room to get to know each other, not to make an album. We explored music he loved. Later recordings with a band did not feel better. The simple living-room takes had something we had not planned to capture.
   continue_timestamp: 01:44:28
   continue_timestamp_s: 6268
-  quote: show up and you keep going until it's great
+  quote: show up and you keep going until it’s great
   quote_timestamp_s: 6238
 - timestamp: 01:45:43
   timestamp_s: 6343
@@ -489,7 +462,7 @@ chapters:
   continue_timestamp_s: 7344
 - timestamp: 02:03:50
   timestamp_s: 7430
-  title: "Guns N' Roses"
+  title: "Guns N’ Roses"
   paragraphs:
   - An artist included a song I thought did not fit with the others. It became a big hit, even though I had not seen that coming. When I say I do not like something, I mean exactly that. I am not claiming no one else should like it or that it cannot succeed.
   - I was asked to produce Guns N’ Roses’ first album, went to see them in a small club, and did not understand what they were doing then. They went on to become Guns N’ Roses. It was right that I did not work with them; my involvement might have changed what they became.
@@ -499,7 +472,7 @@ chapters:
   timestamp_s: 7542
   title: Talent and outcome
   paragraphs:
-  - A great artist may never become commercially successful. Talent is one part, but many other things have to line up. Those conditions are often outside anyone's control. Commercial success does not prove that the work was great or that the artist was talented.
+  - A great artist may never become commercially successful. Talent is one part, but many other things have to line up. Those conditions are often outside anyone’s control. Commercial success does not prove that the work was great or that the artist was talented.
   - I never saw Jay-Z write lyrics. When I played him the beat, he asked me to loop it while he sat quietly in the back. After twenty or thirty minutes, he performed the verse from memory. The words stayed, but he changed their cadence across takes.
   continue_timestamp: 02:07:13
   continue_timestamp_s: 7633

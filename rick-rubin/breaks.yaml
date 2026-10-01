@@ -1,0 +1,25 @@
+breaks:
+- kind: Cold open
+  label: Teaser clips and a subscribe request
+  start: 00:00:00
+  start_s: 0
+  end: 00:02:33
+  end_s: 153
+- kind: Sponsors
+  label: Ketone IQ and Fiverr
+  start: 00:57:45
+  start_s: 3465
+  end: 00:59:41
+  end_s: 3581
+- kind: Promotion
+  label: The 1% diary and a subscribe request
+  start: 02:00:53
+  start_s: 7253
+  end: 02:02:21
+  end_s: 7341
+- kind: Outro
+  label: A pointer to the next video
+  start: 02:46:12
+  start_s: 9972
+  end: 02:46:30
+  end_s: 9990

@@ -1,10 +1,10 @@
-# Jimmy Carr: We're at the beginning of a revolution
+# Jimmy Carr: We’re at the beginning of a revolution
 
-A chapter reading of Jimmy Carr's conversation with Chris Williamson on Modern Wisdom (10 August 2026). A one-on-one conversation where Jimmy builds longer arguments suits chapters better than posters, so this site copies the Rick Rubin reading's techniques: `chapters.yaml` rendered by `build.py`, search, and a docked player that keeps the chapter and the video in step.
+A chapter reading of Jimmy Carr's conversation with Chris Williamson on Modern Wisdom (10 August 2026). A one-on-one conversation where Jimmy builds longer arguments suits chapters better than posters, so this site uses the same chapter form as the Rick Rubin reading: `chapters.yaml` rendered through `template.html` by `build.py`.
 
 `chapters.yaml` holds 49 chapters in Jimmy's first person, each with a direct quote and links into the video. Rebuild with `python3 build.py`.
 
-## Look: Admit One
+## Design: Admit One
 
 Jimmy tours around three hundred nights a year, two shows a night, so the palette comes from the ticket rather than the stage.
 

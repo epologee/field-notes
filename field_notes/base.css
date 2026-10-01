@@ -1,0 +1,9 @@
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;hanging-punctuation:first allow-end last}
+body{text-rendering:optimizeLegibility;font-kerning:normal;font-variant-ligatures:common-ligatures contextual}
+p,li,blockquote,figcaption{text-wrap:pretty;hyphens:auto;-webkit-hyphens:auto;hyphenate-limit-chars:7 3 3;orphans:2;widows:2}
+p{font-variant-numeric:oldstyle-nums proportional-nums;max-inline-size:75ch}
+h1,h2,h3{text-wrap:balance;hyphens:manual}
+time,.time,[data-timecode],kbd,code{font-variant-numeric:tabular-nums lining-nums}
+abbr{font-variant-caps:all-small-caps;letter-spacing:.02em;text-decoration:none}
+mark{color:inherit}
+@media print{.screen,#player{display:none!important}h1,h2,h3{break-after:avoid}blockquote,figure{break-inside:avoid}}

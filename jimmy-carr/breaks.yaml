@@ -1,0 +1,25 @@
+breaks:
+- kind: Sponsors
+  label: Element
+  start: 00:22:57
+  start_s: 1377
+  end: 00:23:53
+  end_s: 1433
+- kind: Sponsors
+  label: Timeline
+  start: 00:38:36
+  start_s: 2316
+  end: 00:39:54
+  end_s: 2394
+- kind: Sponsors
+  label: Momentous Fiber Plus
+  start: 00:56:25
+  start_s: 3385
+  end: 00:57:22
+  end_s: 3442
+- kind: Sponsors
+  label: Eight Sleep
+  start: 01:13:03
+  start_s: 4383
+  end: 01:14:08
+  end_s: 4448

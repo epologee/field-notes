@@ -1,0 +1,25 @@
+breaks:
+- kind: Sponsors
+  label: Momentous Fiber Plus
+  start: 00:19:56
+  start_s: 1196
+  end: 00:21:13
+  end_s: 1273
+- kind: Sponsors
+  label: Timeline
+  start: 00:38:40
+  start_s: 2320
+  end: 00:39:56
+  end_s: 2396
+- kind: Sponsors
+  label: RP Strength
+  start: 00:55:30
+  start_s: 3330
+  end: 00:56:47
+  end_s: 3407
+- kind: Sponsors
+  label: Athletic Brewing
+  start: 01:27:47
+  start_s: 5267
+  end: 01:28:53
+  end_s: 5333
