@@ -38,7 +38,7 @@ Do the design research described in `CIRCUS.md` fresh for this site and record i
 
 1. `python3 -m field_notes check <slug> --transcript <path>` must report 0 problems. It finds paraphrased quotes, quotes outside their item, items inside a break, straight quotes and a missing design section. Fix the data, not the check.
 2. `python3 -m unittest discover -s tests` and `node --test 'tests/runtime/*.test.mjs'` must pass. Add the site to the site and browser tests.
-3. Serve the repository over HTTP and look at the page yourself at desktop and phone width: the title page, a deep link to an item, search for a word that only appears in the transcript, the break markers. Show the operator the screenshots and iterate on what they say.
+3. Serve the repository over HTTP and look at the page yourself at desktop and phone width: the title page, a deep link to an item, search for a word that only appears in the transcript, the break markers. Show the operator the screenshots, saved in the ignored `docs/screenshots/` and never committed, and iterate on what they say.
 
 ## 7. Deliver
 
