@@ -65,6 +65,13 @@ class RickRubinReading(unittest.TestCase):
         follow = next(c for c in chapters if c.get("continue_timestamp_s"))["continue_timestamp_s"]
         self.assertIn(f'?t={follow - lead}\\"', self.page)
 
+    def test_chapter_list_marks_where_the_conversation_pauses(self):
+        data = yaml.safe_load((ROOT / "rick-rubin" / "chapters.yaml").read_text())
+        self.assertIn("Sponsors", [b["kind"] for b in data["breaks"]])
+        for item in data["breaks"]:
+            self.assertIn(f'"{html.escape(item["label"])}",{item["start_s"]},{item["end_s"]}]', self.page)
+        self.assertIn("li.className='break'", self.page)
+
 
 
 class JeffersonFisherPosterWall(unittest.TestCase):

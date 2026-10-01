@@ -36,12 +36,20 @@ for chapter in chapters:
                  html.escape(chapter["quote"]) if chapter.get("quote") else None,
                  chapter.get("quote_timestamp_s"), html.escape(chapter["content_note"]) if chapter.get("content_note") else None])
 
+breaks = []
+for item in DATA.get("breaks", []):
+    start, end = int(item["start_s"]), int(item["end_s"])
+    if item.get("start") != timecode(start) or item.get("end") != timecode(end) or end <= start:
+        raise ValueError(f"break {item.get('label')!r} has inconsistent times")
+    breaks.append([html.escape(item["kind"]), html.escape(item["label"]), start, end])
+
 page = (ROOT / "index.html").read_text()
 page = re.sub(r"const lead=\d+;", f"const lead={LEAD_S};", page)
-pattern = r"const entries=.*?;\nconst toc="
-replacement = "const entries=" + json.dumps(rows, ensure_ascii=False, separators=(",", ":")) + ";\nconst toc="
+pattern = r"const breaks=.*?;\nconst entries=.*?;\nconst toc="
+replacement = ("const breaks=" + json.dumps(breaks, ensure_ascii=False, separators=(",", ":"))
+               + ";\nconst entries=" + json.dumps(rows, ensure_ascii=False, separators=(",", ":")) + ";\nconst toc=")
 updated, count = re.subn(pattern, lambda _: replacement, page, count=1, flags=re.S)
 if count != 1:
     raise SystemExit("Could not find generated chapter-data block in index.html")
 (ROOT / "index.html").write_text(updated)
-print(f"Built index.html with {len(rows)} chapters")
+print(f"Built index.html with {len(rows)} chapters and {len(breaks)} breaks")
