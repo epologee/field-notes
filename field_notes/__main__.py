@@ -60,10 +60,11 @@ def check(slug, transcript_path):
 
 
 def index(slug, transcript_path):
-    windows = transcript.index(transcript.read(transcript_path))
+    item_starts = sorted({item.start for item in site(slug).items()})
+    found = transcript.index(transcript.read(transcript_path), breaks(ROOT / slug), item_starts)
     path = ROOT / slug / "transcript-index.json"
-    path.write_text(json.dumps(windows, ensure_ascii=False, separators=(",", ":")) + "\n")
-    print(f"Wrote {path.relative_to(ROOT)} with {len(windows)} windows")
+    path.write_text(json.dumps(found, ensure_ascii=False, separators=(",", ":")) + "\n")
+    print(f"Wrote {path.relative_to(ROOT)} with {len(found['windows'])} windows")
 
 
 def fetch_breaks(slug, overwrite):

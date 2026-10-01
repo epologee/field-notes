@@ -59,7 +59,7 @@ def build():
         "lead": LEAD_S,
         "docs": docs,
         "breaks": [vars(b) for b in breaks(ROOT)],
-        "transcript": json.loads(index.read_text()) if index.exists() else [],
+        "transcript": json.loads(index.read_text()) if index.exists() else {},
     }
     description = f"{len(rows_)} posters of advice from Jefferson Fisher in conversation with Chris Williamson, each linked to its moment in the video."
     template = PAGE.replace("@@CARDS@@", "\n".join(cards)).replace("@@COUNT@@", str(len(rows_)))

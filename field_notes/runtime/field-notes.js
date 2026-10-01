@@ -94,19 +94,24 @@
     });
   }
 
-  function search(query, docs, transcriptWindows, starts, lead) {
-    const terms = queryTerms(query);
-    if (!terms.length) return null;
+  function search(query, docs, transcriptIndex, starts, lead) {
+    const typed = queryTerms(query);
+    if (!typed.length) return null;
+    const transcriptWindows = (transcriptIndex && transcriptIndex.windows) || [];
+    const unindexed = new Set((transcriptIndex && transcriptIndex.stopwords) || []);
+    const spokenTerms = typed.filter(t => !unindexed.has(t));
+    const terms = spokenTerms.length ? spokenTerms : typed;
     const content = rankByHits(docs.map(d => ({ words: words(d.text) })), terms)
       .map(r => ({ ...r, terms, snippet: snippet(docs[r.i].text, terms) }));
     const byItem = new Map();
-    rankByHits(transcriptWindows.map(([, w]) => ({ words: w.split(' ') })), terms)
-      .filter(r => r.found === terms.length)
+    if (!spokenTerms.length) return { terms, content, transcript: [] };
+    rankByHits(transcriptWindows.map(([, w]) => ({ words: w.split(' ') })), spokenTerms)
+      .filter(r => r.found === spokenTerms.length)
       .map(r => transcriptWindows[r.i][0])
       .sort((a, b) => a - b)
       .forEach(start => {
         const item = itemPlayingAt(starts, start, lead);
-        const moment = byItem.get(item) || { item, start, moments: 0, terms };
+        const moment = byItem.get(item) || { item, start, moments: 0, terms: spokenTerms };
         moment.moments += 1;
         byItem.set(item, moment);
       });
@@ -278,7 +283,7 @@
       started: () => started,
       readerScrolledRecently: () => Date.now() < humanUntil,
       link: seconds => videoLink(site.video, seconds, lead),
-      search: (query, docs) => search(query, docs, site.transcript || [], starts, lead),
+      search: (query, docs) => search(query, docs, site.transcript, starts, lead),
       itemAfterEachBreak: () => itemAfterEachBreak(starts, breaks),
     };
   }

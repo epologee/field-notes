@@ -2,10 +2,10 @@
 import difflib
 
 from . import transcript as spoken
+from .transcript import CONVERSATION_EXCERPTS
 
 QUOTE_DRIFT_S = 60
 VERBATIM_RATIO = 0.85
-CONVERSATION_EXCERPTS = {"Cold open"}
 
 
 def problems(items, breaks, segments, ordered=True):

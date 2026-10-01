@@ -38,7 +38,7 @@ def build():
         "contentNote": CONTENT_NOTE,
         "chapters": found,
         "breaks": [vars(b) for b in breaks(HERE)],
-        "transcript": json.loads(index.read_text()) if index.exists() else [],
+        "transcript": json.loads(index.read_text()) if index.exists() else {},
     }
     render.write(SLUG, render.page((HERE / "template.html").read_text(), SLUG, TITLE, DESCRIPTION, data))
     return f"Built {SLUG}/index.html with {len(found)} chapters"

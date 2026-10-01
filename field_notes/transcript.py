@@ -10,6 +10,7 @@ import re
 import unicodedata
 
 WINDOW_S = 30
+CONVERSATION_EXCERPTS = {"Cold open"}
 LINE = re.compile(r"^\[(\d+):(\d\d):(\d\d)\]\s*(?:\*\*[^*]+:\*\*\s*)?(.*)$")
 WORD = re.compile(r"[^\W_]+")
 STOPWORDS = set("""
@@ -45,9 +46,18 @@ def read(path):
     return segments
 
 
-def index(segments):
+def index(segments, breaks=(), item_starts=()):
+    """The published index. Breaks that are not conversation stay out of it, and a window
+    never spans the start of an item, so every word is found in the item it belongs to."""
+    skipped = [b for b in breaks if b.kind not in CONVERSATION_EXCERPTS]
     windows = {}
     for segment in segments:
-        bucket = segment.start // WINDOW_S * WINDOW_S
+        if any(b.start <= segment.start < b.end for b in skipped):
+            continue
+        bucket = max([segment.start // WINDOW_S * WINDOW_S] + [s for s in item_starts if s <= segment.start])
         windows.setdefault(bucket, set()).update(w for w in words(segment.text) if w not in STOPWORDS)
-    return [[start, " ".join(sorted(found))] for start, found in sorted(windows.items()) if found]
+    return {
+        "window_s": WINDOW_S,
+        "stopwords": sorted(STOPWORDS),
+        "windows": [[start, " ".join(sorted(found))] for start, found in sorted(windows.items()) if found],
+    }

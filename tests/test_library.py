@@ -60,13 +60,25 @@ class TranscriptIndex(unittest.TestCase):
         self.assertEqual(found[2].text, "That's the idea behind our sponsor, a drink.")
 
     def test_publishes_sorted_distinct_words_per_window_without_running_text(self):
-        windows = transcript.index(segments())
+        published = transcript.index(segments())
+        windows = published["windows"]
+        self.assertIn("the", published["stopwords"])
         self.assertEqual([start for start, _ in windows], [0, 30, 60])
         first = windows[0][1].split(" ")
         self.assertEqual(first, sorted(set(first)))
         self.assertIn("playing", first)
         self.assertNotIn("the", first)
         self.assertNotIn("keep playing", windows[0][1])
+
+    def test_a_window_starts_again_where_an_item_starts(self):
+        windows = transcript.index(segments(), item_starts=[0, 20])["windows"]
+        self.assertEqual([start for start, _ in windows], [0, 20, 30, 60])
+        self.assertIn("label", windows[1][1])
+
+    def test_sponsor_reads_stay_out_of_the_index_but_the_cold_open_stays_in(self):
+        windows = transcript.index(segments(), [Break("Cold open", "", 0, 10), Break("Sponsors", "A drink", 40, 60)])["windows"]
+        self.assertIn("beat", windows[0][1])
+        self.assertNotIn("sponsor", " ".join(w for _, w in windows))
 
 
 class Checks(unittest.TestCase):

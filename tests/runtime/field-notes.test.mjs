@@ -57,19 +57,32 @@ test('a hold gives up after a few minutes', () => {
 
 test('content ranks by distinct words found, then hits, and marks the best sentence', () => {
   const docs = [{ text: 'Coding is fun. Vibes.' }, { text: 'Vibe coding and more vibe coding.' }, { text: 'Nothing here.' }];
-  const found = FieldNotes.search('vibe coding', docs, [], [0, 10, 20], 2);
+  const found = FieldNotes.search('vibe coding', docs, {}, [0, 10, 20], 2);
   assert.deepEqual(found.content.map(r => r.i), [1, 0]);
   assert.match(found.content[0].snippet, /<mark>Vibe<\/mark> <mark>coding<\/mark>/);
 });
 
 test('transcript hits need every word and are grouped per item in time order', () => {
   const windows = [[0, 'beat jay keep'], [30, 'beat coding vibe'], [60, 'coding vibe'], [300, 'coding vibe']];
-  const found = FieldNotes.search('vibe coding', [], windows, [0, 200], 2);
+  const found = FieldNotes.search('vibe coding', [], { windows, stopwords: [] }, [0, 200], 2);
   assert.deepEqual(found.transcript.map(h => [h.item, h.start, h.moments]), [[0, 30, 2], [1, 300, 1]]);
 });
 
+test('words the index leaves out do not block a transcript match', () => {
+  const index = { windows: [[0, 'button hit reset']], stopwords: ['the', 'you', 'just'] };
+  assert.equal(FieldNotes.search('you just hit the reset button', [], index, [0], 2).transcript.length, 1);
+  assert.equal(FieldNotes.search('you just', [], index, [0], 2).transcript.length, 0);
+});
+
+test('common words do not flood the content results when the query has better ones', () => {
+  const docs = [{ text: 'The band and the label.' }, { text: 'He hit the reset button.' }];
+  const index = { windows: [], stopwords: ['the', 'he'] };
+  assert.deepEqual(FieldNotes.search('hit the reset button', docs, index, [0, 10], 2).content.map(r => r.i), [1]);
+  assert.deepEqual(FieldNotes.search('the', docs, index, [0, 10], 2).content.map(r => r.i), [0, 1]);
+});
+
 test('an empty query is not a search', () => {
-  assert.equal(FieldNotes.search('  ', [], [], [], 2), null);
+  assert.equal(FieldNotes.search('  ', [], {}, [], 2), null);
 });
 
 test('video links start the lead before the moment', () => {

@@ -48,12 +48,15 @@ class EverySite(unittest.TestCase):
     def test_the_transcript_is_published_only_as_a_word_index(self):
         for slug in SITES:
             with self.subTest(slug):
-                windows = data(slug)["transcript"]
+                windows = data(slug)["transcript"]["windows"]
                 self.assertTrue(windows)
+                item_starts = {c["start"] for c in data(slug).get("chapters", [])} | {
+                    int(s) for s in re.findall(r'data-seconds="(\d+)"', page(slug))}
                 for start, words in windows:
                     listed = words.split(" ")
                     self.assertEqual(listed, sorted(set(listed)))
-                    self.assertEqual(start % 30, 0)
+                    self.assertTrue(start % 30 == 0 or start in item_starts, start)
+                self.assertEqual([s for s, _ in windows], sorted({s for s, _ in windows}))
 
     def test_every_site_knows_its_breaks(self):
         for slug in SITES:
