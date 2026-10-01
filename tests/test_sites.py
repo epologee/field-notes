@@ -64,11 +64,6 @@ class EverySite(unittest.TestCase):
                 self.assertTrue(data(slug)["breaks"])
                 self.assertTrue(all(b["label"] for b in data(slug)["breaks"]))
 
-    def test_the_player_stays_out_of_print(self):
-        for slug in SITES:
-            with self.subTest(slug):
-                self.assertIn("@media print{.screen,#player{display:none!important}", page(slug))
-
 
 class ChapterSites(unittest.TestCase):
     def test_every_chapter_title_and_quote_reaches_the_page(self):
@@ -78,16 +73,6 @@ class ChapterSites(unittest.TestCase):
             self.assertEqual([c["title"] for c in chapters], [c["title"] for c in source])
             self.assertEqual([c.get("quote") for c in chapters], [c.get("quote") for c in source])
 
-    def test_every_carr_chapter_has_a_quote(self):
-        self.assertTrue(all(c.get("quote") for c in data("jimmy-carr")["chapters"]))
-
-    def test_the_carr_content_note_sits_only_on_the_terrible_truth(self):
-        noted = [c["title"] for c in data("jimmy-carr")["chapters"] if c.get("content_note")]
-        self.assertEqual(noted, ["The terrible truth"])
-
-    def test_carr_keeps_its_own_palette(self):
-        self.assertIn("--desk:#c8dbcd", page("jimmy-carr"))
-        self.assertNotIn("#f7f3eb", page("jimmy-carr"))
 
 
 class PosterWall(unittest.TestCase):

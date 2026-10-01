@@ -143,6 +143,7 @@ class Rendering(unittest.TestCase):
         self.assertIn("function mount(site)", page)
         self.assertIn('const FIELD_NOTES={"video":"a_GiFiHXJ6g","note":"<\\/script>"}', page)
         self.assertLess(page.index("text-wrap:pretty"), page.index("--ink:#111"))
+        self.assertIn("@media print{.screen,#player{display:none!important}", page)
 
     def test_refuses_a_template_without_markers_or_colour_tokens(self):
         with self.assertRaises(ValueError):
