@@ -45,6 +45,14 @@ class EverySite(unittest.TestCase):
                 entry = next(v for v in yaml.safe_load((ROOT / "videos.yaml").read_text())["videos"] if v["slug"] == slug)
                 self.assertEqual(data(slug)["video"], entry["youtube_id"])
 
+    def test_every_page_links_the_field_notes_icons(self):
+        for path, prefix in [(ROOT / "index.html", ""), *[(ROOT / slug / "index.html", "../") for slug in SITES]]:
+            with self.subTest(path.parent.name):
+                html = path.read_text()
+                for icon in ("favicon.svg", "favicon-32.png", "apple-touch-icon.png"):
+                    self.assertIn(f'href="{prefix}{icon}"', html)
+                    self.assertTrue((ROOT / icon).exists(), icon)
+
     def test_the_transcript_is_published_only_as_a_word_index(self):
         for slug in SITES:
             with self.subTest(slug):

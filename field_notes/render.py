@@ -24,6 +24,7 @@ def head(slug, title, description):
 <meta property="og:url" content="{SITE_URL}/{slug}/index.html"><meta property="og:image" content="https://i.ytimg.com/vi/{e['youtube_id']}/maxresdefault.jpg">
 <meta property="og:image:width" content="1280"><meta property="og:image:height" content="720"><meta property="og:image:alt" content="{e['speaker']} and {e['host']} on {e['show']}">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="icon" href="../favicon-32.png" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <style>{(HERE / 'base.css').read_text().strip()}</style>"""
 
 
