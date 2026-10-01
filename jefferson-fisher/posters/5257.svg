@@ -13,7 +13,7 @@
       .quote    { font-family: "EB Garamond", "Sorts Mill Goudy", "Apple Garamond", Garamond, "Times New Roman", serif;
                   fill: #0e0e0e; font-weight: 500; }
       .display  { font-size: 106px; line-height: 1.04; letter-spacing: -0.012em; }
-      .accent   { font-style: italic; font-weight: 500; fill: #b14a2a; }
+      .accent   { font-style: italic; font-weight: 500; fill: #c33a2e; }
       .attrib   { font-family: "Inter", "Helvetica Neue", system-ui, sans-serif;
                   font-size: 17px; letter-spacing: 0.18em; text-transform: uppercase;
                   fill: #0e0e0e; font-weight: 600; }
