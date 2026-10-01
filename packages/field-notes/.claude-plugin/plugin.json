@@ -1,0 +1,15 @@
+{
+  "name": "field-notes",
+  "version": "0.1.0",
+  "description": "Turn a long YouTube conversation into a field notes reading site: chapters or posters, a synced player, search and break markers.",
+  "author": {
+    "name": "Eric-Paul Lecluse"
+  },
+  "keywords": [
+    "agent-skills",
+    "field-notes",
+    "youtube",
+    "reading-site"
+  ],
+  "skills": "./skills/"
+}

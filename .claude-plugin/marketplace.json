@@ -1,0 +1,16 @@
+{
+  "name": "field-notes",
+  "owner": {
+    "name": "Eric-Paul Lecluse"
+  },
+  "metadata": {
+    "description": "Reading sites for long YouTube conversations, built on the field_notes library in this repository."
+  },
+  "plugins": [
+    {
+      "name": "field-notes",
+      "description": "Turn a long YouTube conversation into a field notes reading site: chapters or posters, a synced player, search and break markers.",
+      "source": "./packages/field-notes"
+    }
+  ]
+}

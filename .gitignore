@@ -1,1 +1,4 @@
 __pycache__/
+!.agents/
+!.agents/plugins/
+!.agents/plugins/**

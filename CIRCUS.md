@@ -14,6 +14,10 @@ The behaviour every site needs lives once in `field_notes/` and is inlined into 
 
 A site supplies its own template, styles and render hooks, and calls `FieldNotes.mount`. Change shared behaviour in `field_notes/`, never in a site; a fix there reaches every site on the next build. Do not move layout, colour or type into `field_notes/`. The library is written for this repository alone: no packaging, no versioned API, no documentation for outside users.
 
+## A new site
+
+The editorial work of a new site, from transcript to published page, ships as the `field-notes:new-site` skill in `packages/field-notes/`; this repository is its own single-plugin marketplace for Claude Code and Codex. Edit the skill there, then regenerate the Codex adapters under `.agents/plugins/`.
+
 ## Every site has its own look
 
 Each site gets its own colour scheme and typography, derived from the subject of the conversation rather than from a house style. Do fresh design research for every new site; an earlier site's research does not carry over:
